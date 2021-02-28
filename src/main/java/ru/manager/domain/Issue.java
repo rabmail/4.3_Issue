@@ -17,8 +17,6 @@ public class Issue  implements Comparable<Issue>{
     private boolean status; //если true активно else false
 
 
-
-
     @Override
     public int compareTo(Issue o) {
             return id - o.id;
