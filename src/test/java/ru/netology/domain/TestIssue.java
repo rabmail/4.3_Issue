@@ -2,12 +2,8 @@ package ru.netology.domain;
 
 import org.junit.jupiter.api.Test;
 import ru.manager.domain.Issue;
-import ru.manager.repository.RepositoryIssue;
-
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 
