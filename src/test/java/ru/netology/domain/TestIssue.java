@@ -6,12 +6,12 @@ import ru.manager.repository.RepositoryIssue;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 
 public class TestIssue {
-    //private RepositoryIssue repository = new RepositoryIssue();
     private Collection<Issue> issues = new ArrayList<>();
     private Issue Is1 = new Issue(1, "Vasa", "Java", "Pupkin", "123", false);
     private Issue Is2 = new Issue(2, "Pupkin", "Java", "Ivanov", "123", true);
@@ -21,15 +21,14 @@ public class TestIssue {
 
     @Test
     public void shouldSaveAll() {
-
-        Collection<Issue> issues = new ArrayList<>();
         issues.add(Is1);
         issues.add(Is2);
+        issues.add(Is3);
+        issues.add(Is4);
+        issues.add(Is5);
 
-       // boolean actual = RepositoryIssue.addAll(Is1,Is2);
-        Issue[]  actual = issues.addAll(Is1,Is2);
-        Issue[] expected = new Issue[]{Is1, Is2};
-         assertArrayEquals(actual, expected);
-
+        Issue[] actual = issues.toArray(new Issue[0]);
+        Issue[] expected = new Issue[]{Is1, Is2, Is3, Is4, Is5};
+        assertArrayEquals(actual, expected);
     }
 }
