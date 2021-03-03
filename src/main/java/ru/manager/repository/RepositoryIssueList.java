@@ -7,19 +7,28 @@ import java.util.Collection;
 import java.util.List;
 
 
-public class RepositoryIssue {
+public class RepositoryIssueList extends ArrayList{
     private List<Issue> items = new ArrayList<>();
 
-
-
-    public boolean addAll(Collection<? extends Issue> items) {
+    public boolean addAll2(Collection<? extends Issue> items) {
         return this.items.addAll(items);
     }
 
+    public void addAll3(Collection<? extends Issue> item) {
+        items.addAll(item);
+    }
 
     public void save(Issue item) {
         items.add(item);
     }
+
+
+    //
+//    public static RepositoryIssue save0(Issue item) {
+//        RepositoryIssue repositoryIssueList= new RepositoryIssue();
+//        repositoryIssueList.add(item);
+//        return repositoryIssueList;
+ //   }
 
     public List<Issue> getAll() {
         return items;

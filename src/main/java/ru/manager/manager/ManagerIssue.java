@@ -2,13 +2,15 @@ package ru.manager.manager;
 
 import lombok.Data;
 import ru.manager.domain.Issue;
-import ru.manager.repository.RepositoryIssue;
+import ru.manager.repository.RepositoryIssueList;
+;
 
     @Data
     public class ManagerIssue {
-        private RepositoryIssue repository;
+        private RepositoryIssueList repository;
 
-        public ManagerIssue(RepositoryIssue repository) {
+
+        public ManagerIssue(RepositoryIssueList repository) {
             this.repository = repository;
         }
 
