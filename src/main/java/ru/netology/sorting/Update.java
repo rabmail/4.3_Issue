@@ -1,12 +1,12 @@
-package ru.manager.sorting;
+package ru.netology.sorting;
 
-import ru.manager.domain.Issue;
+import ru.netology.domain.Issue;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;
 
-public class Sorting  implements Comparator<Issue> {
+public class Update  implements Comparator<Issue> {
     Date data1;
     Date data2;
 
@@ -27,7 +27,7 @@ public class Sorting  implements Comparator<Issue> {
         catch (ParseException e){
             e.printStackTrace();
         }
-        return data1.compareTo(data2);
+        return data2.compareTo(data1);
     }
 
 }

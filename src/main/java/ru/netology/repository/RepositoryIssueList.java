@@ -1,9 +1,8 @@
-package ru.manager.repository;
+package ru.netology.repository;
 
-import ru.manager.domain.Issue;
+import ru.netology.domain.Issue;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 

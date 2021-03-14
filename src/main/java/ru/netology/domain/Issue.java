@@ -1,9 +1,7 @@
-package ru.manager.domain;
+package ru.netology.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.netology.domain.Author;
-import ru.netology.domain.Label;
 
 import java.util.*;
 

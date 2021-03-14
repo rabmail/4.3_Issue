@@ -10,6 +10,4 @@ import lombok.NoArgsConstructor;
 public class Label {
     private int id;
     private String topic;
-    private String subtopic;
-    private String color;
 }
