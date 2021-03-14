@@ -9,7 +9,6 @@ import ru.netology.repository.RepositoryIssueList;
 import java.util.*;
 
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -43,8 +42,8 @@ public class TestIssue {
     class AllIssue {
         @BeforeEach
         public void set() {
-            labels.addAll(List.of(lb1,lb2,lb3,lb4,lb5));
-            assignees.addAll(List.of(au1,au2,au3,au4,au5));
+            labels.addAll(List.of(lb1, lb2, lb3, lb4, lb5));
+            assignees.addAll(List.of(au1, au2, au3, au4, au5));
 
             manager.add(is1);
             manager.add(is2);
@@ -52,6 +51,7 @@ public class TestIssue {
             manager.add(is4);
             manager.add(is5);
         }
+
         @Test
         void shouldFilterAutorYes() {
             List<Issue> actual = manager.filterAuthor(au1);
@@ -72,32 +72,19 @@ public class TestIssue {
         void shouldFilterAssigneeYes() {
             List<Issue> actual = manager.filterAssignee(au1);
             List<Issue> expected = new ArrayList<>();
-            expected.addAll(List.of(is1,is2,is3,is4,is5));
+            expected.addAll(List.of(is1, is2, is3, is4, is5));
             assertEquals(expected, actual);
         }
 
-        @Test
-        void shouldFilterAssigneeNo() {
-            List<Issue> actual = manager.filterAuthor(au4);
-            List<Issue> expected = new ArrayList<>();
-            assertEquals(expected, actual);
-        }
 
         @Test
         void shouldFilterLabelYes() {
-            List<Issue> actual = manager.filterAuthor(au1);
+            List<Issue> actual = manager.filterLabel(lb1);
             List<Issue> expected = new ArrayList<>();
-            expected.add(is1);
-            expected.add(is4);
+            expected.addAll(List.of(is1, is2, is3, is4, is5));
             assertEquals(expected, actual);
         }
 
-        @Test
-        void shouldFilterLabelNo() {
-            List<Issue> actual = manager.filterAuthor(au4);
-            List<Issue> expected = new ArrayList<>();
-            assertEquals(expected, actual);
-        }
     }
 
 }
