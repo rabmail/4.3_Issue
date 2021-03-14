@@ -7,11 +7,9 @@ import ru.netology.domain.Author;
 import ru.netology.domain.Issue;
 import ru.netology.domain.Label;
 import ru.netology.manager.ManagerIssue;
+import ru.netology.sorting.Sorting;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -95,7 +93,14 @@ class TestRepository {
             expected.add(is5);
             assertEquals(expected, actual);
         }
-
+        @Test
+        void shouldSortData() {
+            Collections.sort(repository.getAll(), new Sorting());
+            List<Issue> actual = repository.getAll();
+            List<Issue> expected = new ArrayList<>();
+            expected.addAll(List.of(is2,is4,is5, is1, is3));
+            assertEquals(expected, actual);
+        }
 
     }
 
