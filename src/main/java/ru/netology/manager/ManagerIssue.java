@@ -30,6 +30,7 @@ import java.util.function.Predicate;
         return repository.getAll();
     }
 
+
     public List<Issue> filterAuthor(Author author) {
         List<Issue> issues = repository.getAll();
         Predicate<Issue> predicate = obj -> obj.getAuthor().equals(author);
