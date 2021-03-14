@@ -10,27 +10,13 @@ import java.util.List;
 public class RepositoryIssueList extends ArrayList{
     private List<Issue> items = new ArrayList<>();
 
-    public boolean addAll2(Collection<? extends Issue> items) {
-        return this.items.addAll(items);
+    public boolean add(Issue items) {
+
+        return this.items.add(items);
     }
-
-    public void addAll3(Collection<? extends Issue> item) {
-        items.addAll(item);
-    }
-
-    public void save(Issue item) {
-        items.add(item);
-    }
-
-
-    //
-//    public static RepositoryIssue save0(Issue item) {
-//        RepositoryIssue repositoryIssueList= new RepositoryIssue();
-//        repositoryIssueList.add(item);
-//        return repositoryIssueList;
- //   }
 
     public List<Issue> getAll() {
+
         return items;
     }
 
@@ -45,6 +31,7 @@ public class RepositoryIssueList extends ArrayList{
     }
 
     public void removeById(int id) {
+
         items.removeIf(items -> items.getId() == id);
     }
 

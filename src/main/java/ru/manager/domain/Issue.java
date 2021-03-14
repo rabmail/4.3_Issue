@@ -2,24 +2,23 @@ package ru.manager.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.netology.domain.Author;
+import ru.netology.domain.Label;
 
-import java.util.ArrayList;
+import java.util.*;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Issue  implements Comparable<Issue>{
+public class Issue  {
     private int id;
-    private String author;
-    private String label;
-    private String assignee;
+    private String dataCreation;
+    private Author author;
+    private Set<Author> assignee;
+    private Set<Label>label;
     private String project;
     private boolean status; //если true активно else false
 
-
-    @Override
-    public int compareTo(Issue o) {
-            return id - o.id;
-    }
 
 }
