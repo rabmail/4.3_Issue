@@ -42,18 +42,9 @@ public class TestIssue {
     @Nested
     class AllIssue {
         @BeforeEach
-        public void setUp() {
-            labels.add(lb1);
-            labels.add(lb2);
-            labels.add(lb3);
-            labels.add(lb4);
-            labels.add(lb5);
-
-            assignees.add(au1);
-            assignees.add(au2);
-            assignees.add(au3);
-            assignees.add(au4);
-            assignees.add(au5);
+        public void set() {
+            labels.addAll(List.of(lb1,lb2,lb3,lb4,lb5));
+            assignees.addAll(List.of(au1,au2,au3,au4,au5));
 
             manager.add(is1);
             manager.add(is2);
@@ -79,10 +70,9 @@ public class TestIssue {
 
         @Test
         void shouldFilterAssigneeYes() {
-            List<Issue> actual = manager.filterAuthor(au1);
+            List<Issue> actual = manager.filterAssignee(au1);
             List<Issue> expected = new ArrayList<>();
-            expected.add(is1);
-            expected.add(is4);
+            expected.addAll(List.of(is1,is2,is3,is4,is5));
             assertEquals(expected, actual);
         }
 
