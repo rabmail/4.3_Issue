@@ -57,7 +57,7 @@ class TestRepository {
         void shouldAllOpenIssue() {
             List<Issue> actual = repository.findOpen(repository.getAll());
             List<Issue> expected = new ArrayList<>();
-            expected.addAll(List.of(is2,is3,is5));
+            expected.addAll(List.of(is2, is3, is5));
             assertEquals(expected, actual);
         }
 
@@ -65,12 +65,13 @@ class TestRepository {
         void shouldAllCloseIssue() {
             List<Issue> actual = repository.findClose(repository.getAll());
             List<Issue> expected = new ArrayList<>();
-            expected.addAll(List.of(is1,is4));
+            expected.addAll(List.of(is1, is4));
             assertEquals(expected, actual);
         }
+
         @Test
         void shouldOpenIssue() {
-           repository.openIssueID(repository.getAll(),1);
+            repository.openIssueID(repository.getAll(), 1);
             List<Issue> actual = repository.getAll();
             List<Issue> expected = new ArrayList<>();
             expected.add(new Issue(1, "14.02.2021", au1, assignees, labels, "java", true));
@@ -83,22 +84,23 @@ class TestRepository {
 
         @Test
         void shouldCloseIssue() {
-            repository.closeIssueID(repository.getAll(),2);
+            repository.closeIssueID(repository.getAll(), 2);
             List<Issue> actual = repository.getAll();
             List<Issue> expected = new ArrayList<>();
             expected.add(is1);
-            expected.add(new Issue(2, "14.01.2021", au2, assignees, labels, "delphi",false));
+            expected.add(new Issue(2, "14.01.2021", au2, assignees, labels, "delphi", false));
             expected.add(is3);
             expected.add(is4);
             expected.add(is5);
             assertEquals(expected, actual);
         }
+
         @Test
         void shouldSortData() {
             Collections.sort(repository.getAll(), new Sorting());
             List<Issue> actual = repository.getAll();
             List<Issue> expected = new ArrayList<>();
-            expected.addAll(List.of(is2,is4,is5, is1, is3));
+            expected.addAll(List.of(is2, is4, is5, is1, is3));
             assertEquals(expected, actual);
         }
 

@@ -1,33 +1,25 @@
 package ru.netology.sorting;
 
+import lombok.SneakyThrows;
 import ru.netology.domain.Issue;
+import ru.netology.domain.Label;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
-public class Sorting  implements Comparator<Issue> {
-    Date data1;
-    Date data2;
+public class Sorting implements Comparator<Issue> {
 
+    @SneakyThrows
     @Override
     public int compare(Issue o1, Issue o2) {
-        String  date1= o1.getDataCreation();
-        String  date2= o2.getDataCreation();
-        SimpleDateFormat format=new SimpleDateFormat("dd.MM.yyyy");
-        try {
-            data1 = format.parse(date1);
-        }
-        catch (ParseException e){
-            e.printStackTrace();
-        }
-        try {
-            data2 = format.parse(date2);
-        }
-        catch (ParseException e){
-            e.printStackTrace();
-        }
-        return data1.compareTo(data2);
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+        final Date date1 = format.parse(o1.getDataCreation());
+        final Date date2 = format.parse(o2.getDataCreation());
+        return date1.compareTo(date2);
     }
 
 }

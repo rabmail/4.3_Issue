@@ -10,6 +10,7 @@ import java.util.*;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 
 public class TestIssue {
@@ -79,7 +80,7 @@ public class TestIssue {
 
         @Test
         void shouldFilterLabelYes() {
-            List<Issue> actual = manager.filterLabel(lb1);
+            List<Issue> actual = manager.filterLabel(lb2);
             List<Issue> expected = new ArrayList<>();
             expected.addAll(List.of(is1, is2, is3, is4, is5));
             assertEquals(expected, actual);
